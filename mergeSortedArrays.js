@@ -1,7 +1,5 @@
 // O( Max(a.length, b.length) )
-function getMergedSortedArrays(a, b) {
-  const merged = [];
-
+function mergedSortedArraysV1(a, b) {
   if (!a.length) {
     return b;
   }
@@ -9,6 +7,8 @@ function getMergedSortedArrays(a, b) {
   if (!b.length) {
     return a;
   }
+
+  const merged = [];
 
   while (a[0] !== undefined || b[0] !== undefined) {
     if (a[0] !== undefined && a[0] < b[0]) {
@@ -19,4 +19,8 @@ function getMergedSortedArrays(a, b) {
   }
 
   return merged;
+}
+
+function mergedSortedArraysV2(a, b) {
+  return a.concat(b).sort();
 }
