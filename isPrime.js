@@ -8,7 +8,7 @@ function isPrimeV1(n) {
   return true;
 }
 
-// O(sqrt(n))
+// O(sqrt(N))
 function isPrimeV2(n) {
   if (n % 2 === 0) {
     return false;
