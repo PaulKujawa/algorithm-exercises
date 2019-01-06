@@ -1,5 +1,5 @@
 // O(n)
-function getPrimes(n) {
+function getPrimeFactors(n) {
   const primes = [];
   let d = 2;
 
@@ -13,3 +13,5 @@ function getPrimes(n) {
   }
   return primes;
 }
+
+module.exports = getPrimeFactors;

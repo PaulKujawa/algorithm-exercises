@@ -1,5 +1,5 @@
-// algorithm from https://stackoverflow.com/a/39928535
-
+// idea from https://stackoverflow.com/a/39928535
+// TODO tests
 function* permute(arr, n = arr.length) {
   if (n <= 1) {
     yield arr.slice();

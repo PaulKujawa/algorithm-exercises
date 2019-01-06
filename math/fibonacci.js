@@ -1,6 +1,10 @@
 // O(n)
 function getFibonacci(n) {
-  if (n <= 2) {
+  if (n === 0) {
+    return 0;
+  }
+  
+  if (n === 1 || n === 2) {
     return 1;
   }
 
@@ -13,11 +17,4 @@ function getFibonacci(n) {
   return fib[1];
 }
 
-// O(2^N)
-function getFibonacciRecursive(n) {
-  if (n < 2) {
-    return n;
-  }
-
-  return getFibonacciRecursive(n - 2) + getFibonacciRecursive(n - 1);
-}
+module.exports = getFibonacci;

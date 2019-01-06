@@ -1,3 +1,5 @@
+// idea from http://www.thatjsdude.com/interview/js1.html#swapTemp
+
 // O(1)
 function swapNumbers({ a, b }) {
   a = a ^ b;
@@ -6,3 +8,5 @@ function swapNumbers({ a, b }) {
 
   return { a, b };
 }
+
+module.exports = swapNumbers;

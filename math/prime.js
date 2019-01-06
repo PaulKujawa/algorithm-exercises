@@ -1,15 +1,7 @@
-// O(N/2)
-function isPrimeV1(n) {
-  for (let d = 2; d <= n / 2; d++) {
-    if (n % d === 0) {
-      return false;
-    }
-  }
-  return true;
-}
+// idea from http://www.thatjsdude.com/interview/js1.html#primFactors
 
 // O(sqrt(N))
-function isPrimeV2(n) {
+function isPrime(n) {
   if (n % 2 === 0) {
     return false;
   }
@@ -23,3 +15,5 @@ function isPrimeV2(n) {
   }
   return true;
 }
+
+module.exports = isPrime;

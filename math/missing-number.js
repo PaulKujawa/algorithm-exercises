@@ -6,3 +6,5 @@ function missingNumberInUnsortedList(arr) {
 
   return expectedSum - arr.reduce((acc, v) => acc + v);
 }
+
+module.exports = missingNumberInUnsortedList;
