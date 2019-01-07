@@ -1,15 +1,15 @@
 var isPalindrome = require("../palindrome.js");
 
 describe("isPalindrome", () => {
-  it("should be true for abcba", () => {
-    expect(isPalindrome("abcba")).toBeTruthy;
+  it("should be true", () => {
+    expect(isPalindrome("Cigar? Toss it in a can. It is so tragic")).toBeTruthy();
   });
 
   it("should be case insensitive", () => {
-    expect(isPalindrome("aBcbA")).toBeTruthy;
+    expect(isPalindrome("aBcbA")).toBeTruthy();
   });
 
   it("should be false for abccba", () => {
-    expect(isPalindrome("abccba")).toBeFalsy;
+    expect(isPalindrome("sit ad est love")).toBeFalsy();
   });
 });
