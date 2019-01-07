@@ -6,11 +6,11 @@ function isPalindrome(str) {
   if (str.length % 2 === 0) {
     return false;
   }
-  
-  /* 
+
+  /*
    * return str === [...str].reverse().join('');
    * would be shorter but slower
-   * 
+   *
    * O(N)
    */
   for (let i = 0; i < str.length / 2; i++) {
