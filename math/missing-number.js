@@ -1,6 +1,7 @@
-// O(N.length)
+// Gaußsche Summenformel
+
+// O(N)
 function missingNumberInUnsortedList(arr) {
-  // Gaußsche Summenformel
   const totalN = arr.length + 1;
   const expectedSum = (totalN * (totalN + 1)) / 2;
 

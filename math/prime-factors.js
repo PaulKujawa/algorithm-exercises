@@ -1,4 +1,4 @@
-// O(n)
+// O(N)
 function getPrimeFactors(n) {
   const primes = [];
   let d = 2;
