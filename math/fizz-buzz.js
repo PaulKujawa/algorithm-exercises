@@ -23,6 +23,7 @@ function map(i) {
 // O(N)
 function fizzBuzz(n) {
   const terms = [];
+
   for (let i = 1; i <= n; i++) {
     terms.push(map(i));
   }
