@@ -1,7 +1,7 @@
 // idea from http://www.thatjsdude.com/interview/js1.html#mergeSotedArray
 
 // O(A+B)
-function mergedSortedArraysV1(a, b) {
+function mergedSortedArrays(a, b, compare = (a, b) => a < b) {
   if (!a.length || !b.length) {
     return [...a, ...b];
   }
@@ -13,7 +13,7 @@ function mergedSortedArraysV1(a, b) {
 
   // O(A+B)
   while (a[0] !== undefined || b[0] !== undefined) {
-    if (a[0] !== undefined && a[0] < b[0]) {
+    if (a[0] !== undefined && compare(a[0], b[0])) {
       merged.push(a.shift());
     } else {
       merged.push(b.shift());
@@ -24,11 +24,11 @@ function mergedSortedArraysV1(a, b) {
 }
 
 // O((A+B) log (A+B))
-function mergedSortedArraysV2(a, b) {
-  return [...a, ...b].sort((x, y) => x - y);
+function mergedSortedArraysSort(a, b, sorter = (x, y) => x - y) {
+  return [...a, ...b].sort(sorter);
 }
 
 module.exports = {
-  mergedSortedArraysV1,
-  mergedSortedArraysV2
+  mergedSortedArrays,
+  mergedSortedArraysSort
 };

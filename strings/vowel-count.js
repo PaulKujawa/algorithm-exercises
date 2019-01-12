@@ -1,7 +1,6 @@
 // O(N)
 function getVowelCount(str) {
   const isVowel = char => ["a", "e", "o", "u"].includes(char);
-
   return [...str.toLowerCase()].filter(isVowel).length;
 }
 

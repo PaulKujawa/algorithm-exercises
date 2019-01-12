@@ -1,4 +1,4 @@
-var isPrime = require("../prime.js");
+const isPrime = require("../prime.js");
 
 describe("isPrime", () => {
   it("should be positive for 137", () => {

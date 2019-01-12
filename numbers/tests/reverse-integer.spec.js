@@ -1,4 +1,4 @@
-var reverseInteger = require("../reverse-integer.js");
+const reverseInteger = require("../reverse-integer.js");
 
 describe("reverseInteger", () => {
   it("should reverse natural numbers", () => {

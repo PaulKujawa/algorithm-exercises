@@ -1,4 +1,4 @@
-var sumFinder = require("../sum-finder.js");
+const sumFinder = require("../sum-finder.js");
 
 describe("sumFinder", () => {
   it("should add 6 and 7", () => {

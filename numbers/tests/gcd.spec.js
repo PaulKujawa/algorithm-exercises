@@ -1,4 +1,4 @@
-var gcd = require("../gcd.js");
+const gcd = require("../gcd.js");
 
 describe("gcd", () => {
   it("should return 7 as greatest common divisor for 14 and 21", () => {

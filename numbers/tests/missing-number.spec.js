@@ -1,4 +1,4 @@
-var missingNumberInUnsortedList = require("../missing-number.js");
+const missingNumberInUnsortedList = require("../missing-number.js");
 
 describe("missingNumberInUnsortedList", () => {
   it("should find the missing 4 in 1 to 8", () => {

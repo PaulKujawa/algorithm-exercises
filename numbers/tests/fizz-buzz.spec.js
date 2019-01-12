@@ -1,4 +1,4 @@
-var fizzBuzz = require("../fizz-buzz.js");
+const fizzBuzz = require("../fizz-buzz.js");
 
 describe("fizzBuzz", () => {
   let output;

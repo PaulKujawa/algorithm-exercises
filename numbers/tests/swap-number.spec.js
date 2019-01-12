@@ -1,4 +1,4 @@
-var swapNumbers = require("../swap-numbers.js");
+const swapNumbers = require("../swap-numbers.js");
 
 describe("swapNumbers", () => {
   it("should swap a and b", () => {

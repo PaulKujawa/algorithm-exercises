@@ -1,4 +1,4 @@
-var isPalindrome = require("../palindrome.js");
+const isPalindrome = require("../palindrome.js");
 
 describe("isPalindrome", () => {
   it("should be true", () => {
