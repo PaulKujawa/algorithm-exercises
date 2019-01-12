@@ -2,7 +2,7 @@
 function sumFinder(arr) {
   const summands = [0, 0];
 
-  for (elem of arr) {
+  for (const elem of arr) {
     summands.push(elem);
     summands.sort();
     summands.shift();

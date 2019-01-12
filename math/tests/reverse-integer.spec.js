@@ -5,7 +5,7 @@ describe("reverseInteger", () => {
     expect(reverseInteger(1234)).toBe(4321);
   });
 
-  it("should drop leading zeros", () => {
+  it("should drop leading zero", () => {
     expect(reverseInteger(-1200)).toBe(-21);
   });
 });

@@ -3,7 +3,7 @@ function mostOftenCharacter(str) {
   const cnt = {};
 
   // O(N)
-  for (char of str) {
+  for (const char of str) {
     cnt[char] !== undefined ? cnt[char]++ : (cnt[char] = 0);
   }
 
