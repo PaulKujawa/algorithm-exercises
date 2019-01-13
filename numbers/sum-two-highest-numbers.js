@@ -1,5 +1,5 @@
 // O(N)
-function sumFinder(arr) {
+function sumTwoHighestNumbers(arr) {
   const summands = [0, 0];
 
   for (const elem of arr) {
@@ -11,4 +11,4 @@ function sumFinder(arr) {
   return summands[0] + summands[1];
 }
 
-module.exports = sumFinder;
+module.exports = sumTwoHighestNumbers;
