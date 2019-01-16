@@ -1,6 +1,6 @@
-const createQueue = require("../queue");
+const createQueue = require("../queue.js");
 
-let queue = undefined;
+let queue;
 
 beforeEach(() => {
   queue = createQueue();
@@ -13,7 +13,7 @@ describe("isEmpty", () => {
 });
 
 describe("enqueue and length", () => {
-  it("should be 0 per default", () => {
+  it("should have length of 0 per default", () => {
     expect(queue.length).toBe(0);
   });
   
@@ -27,19 +27,18 @@ describe("enqueue and length", () => {
 });
 
 describe("dequeue", () => {
-  it("should remove oldest item", () => {
+  it("should remove first-in item", () => {
     queue.enqueue("first");
     queue.enqueue("second");
     queue.enqueue("third");
-    const item = queue.dequeue();
 
-    expect(item).toBe("first");
+    expect(queue.dequeue()).toBe("first");
     expect(queue.length).toBe(2);
   });
 });
 
 describe("peek", () => {
-  it("should return but not remove the oldest item", () => {
+  it("should return but not remove the first-in item", () => {
     queue.enqueue("first");
     queue.enqueue("second");
     queue.enqueue("third");
