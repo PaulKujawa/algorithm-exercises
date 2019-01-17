@@ -6,27 +6,23 @@ beforeEach(() => {
   queue = createQueue();
 });
 
-describe("isEmpty", () => {
+describe("adding items", () => {
   it("should be emptry per default", () => {
+    expect(queue.length).toBe(0);
     expect(queue.isEmpty()).toBeTruthy();
   });
-});
 
-describe("enqueue and length", () => {
-  it("should have length of 0 per default", () => {
-    expect(queue.length).toBe(0);
-  });
-  
-  it("should add items and increase length respectively", () => {
+  it("should increase length with items added", () => {
     queue.enqueue("first");
     queue.enqueue("second");
     queue.enqueue("third");
 
     expect(queue.length).toBe(3);
+    expect(queue.isEmpty()).toBeFalsy();
   });
 });
 
-describe("dequeue", () => {
+describe("removing items", () => {
   it("should remove first-in item", () => {
     queue.enqueue("first");
     queue.enqueue("second");
@@ -37,7 +33,7 @@ describe("dequeue", () => {
   });
 });
 
-describe("peek", () => {
+describe("peek next item", () => {
   it("should return but not remove the first-in item", () => {
     queue.enqueue("first");
     queue.enqueue("second");

@@ -6,39 +6,39 @@ beforeEach(() => {
   stack = createStack();
 });
 
-describe("isEmpty", () => {
+describe("adding items", () => {
   it("should be emptry per default", () => {
+    expect(stack.length).toBe(0);
     expect(stack.isEmpty()).toBeTruthy();
   });
-});
 
-describe("push and length", () => {
-  it("should have length of 0 per default", () => {
-    expect(stack.length).toBe(0);
-  });
-
-  it("should add items and increase length respectively", () => {
+  it("should increase length with items added", () => {
     stack.push("first");
     stack.push("second");
     stack.push("third");
 
     expect(stack.length).toBe(3);
+    expect(stack.isEmpty()).toBeFalsy();
   });
 });
 
-describe("pop", () => {
+describe("removing items", () => {
+  it("should return undefined when empty", () => {
+    expect(stack.pop()).toBeUndefined();
+  });
+  
   it("should remove last-in item", () => {
     stack.push("first");
     stack.push("second");
     stack.push("third");
-    
+
     expect(stack.pop()).toBe("third");
     expect(stack.length).toBe(2);
   });
 });
 
-describe("peek", () => {
-  it("should return but not remove the lst-in item", () => {
+describe("peek next item", () => {
+  it("should return but not remove last-in item", () => {
     stack.push("first");
     stack.push("second");
     stack.push("third");

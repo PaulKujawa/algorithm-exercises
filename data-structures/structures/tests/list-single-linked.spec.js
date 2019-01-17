@@ -70,6 +70,7 @@ describe("remove item per index", () => {
     list.push("c");
     list.push("d");
     expect(list.delete(1)).toBe("b");
+    expect(list.get(1)).toBe("c");
     expect(list.length).toBe(3);
   });
 });

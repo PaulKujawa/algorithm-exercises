@@ -6,38 +6,33 @@ beforeEach(() => {
   queue = createPriorityQueue();
 });
 
-describe("isEmpty", () => {
+describe("adding items", () => {
   it("should be emptry per default", () => {
+    expect(queue.length).toBe(0);
     expect(queue.isEmpty()).toBeTruthy();
   });
-});
 
-describe("enqueue and length", () => {
-  it("should have a length of 0 per default", () => {
-    expect(queue.length).toBe(0);
-  });
-  
-  it("should add items and combine length of regular and priority queue", () => {
+  it("should increase length with items added", () => {
     queue.enqueue("first");
     queue.enqueue("second", true);
     queue.enqueue("third", false);
 
     expect(queue.length).toBe(3);
+    expect(queue.isEmpty()).toBeFalsy();
   });
 });
 
-describe("dequeue", () => {
+describe("removing items", () => {
   it("should remove first-in item", () => {
     queue.enqueue("first");
     queue.enqueue("second");
     queue.enqueue("third");
-    const item = queue.dequeue();
 
-    expect(item).toBe("first");
+    expect(queue.dequeue()).toBe("first");
     expect(queue.length).toBe(2);
   });
 
-  it('should remove item from priority queue first', () => {
+  it("should remove item from priority queue first", () => {
     queue.enqueue("first");
     queue.enqueue("second", true);
     queue.enqueue("third");
@@ -47,7 +42,7 @@ describe("dequeue", () => {
   });
 });
 
-describe("peek", () => {
+describe("peek next item", () => {
   it("should return but not remove the first-in item", () => {
     queue.enqueue("first");
     queue.enqueue("second");
@@ -57,7 +52,7 @@ describe("peek", () => {
     expect(queue.length).toBe(3);
   });
 
-  it('should return item from priority queue first', () => {
+  it("should return item from priority queue first", () => {
     queue.enqueue("first");
     queue.enqueue("second", true);
     queue.enqueue("third");
