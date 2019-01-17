@@ -63,6 +63,6 @@ describe("peek", () => {
     queue.enqueue("third");
 
     expect(queue.peek()).toBe("second");
-    expect(queue.length).toBe(2);
+    expect(queue.length).toBe(3);
   });
 });
