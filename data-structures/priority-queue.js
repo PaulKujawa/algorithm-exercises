@@ -1,32 +1,32 @@
 const createQueue = require('./queue.js');
 
 function createPriorityQueue() {
-  const lowPriorityQueue = createQueue();
-  const highPriorityQueue = createQueue();
+  const items = createQueue();
+  const priorityItems = createQueue();
 
   return {
     enqueue(item, priority = false) {
       priority
-        ? highPriorityQueue.enqueue(item)
-        : lowPriorityQueue.enqueue(item);
+        ? priorityItems.enqueue(item)
+        : items.enqueue(item);
     },
     dequeue() {
-      if (highPriorityQueue.length) {
-        return highPriorityQueue.dequeue();
+      if (priorityItems.length) {
+        return priorityItems.dequeue();
       }
-      return lowPriorityQueue.dequeue();
+      return items.dequeue();
     },
     peek() {
-      if (highPriorityQueue.length) {
-        return highPriorityQueue.peek();
+      if (priorityItems.length) {
+        return priorityItems.peek();
       }
-      return lowPriorityQueue.peek();
+      return items.peek();
     },
     isEmpty() {
-      return highPriorityQueue.isEmpty() && lowPriorityQueue.isEmpty();
+      return priorityItems.isEmpty() && items.isEmpty();
     },
     get length() {
-      return highPriorityQueue.length + lowPriorityQueue.length;
+      return priorityItems.length + items.length;
     }
   };
 }

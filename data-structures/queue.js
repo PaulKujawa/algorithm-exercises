@@ -1,21 +1,21 @@
 function createQueue() {
-  const queue = [];
+  const items = [];
 
   return {
     enqueue(item) {
-      queue.unshift(item);
+      items.unshift(item);
     },
     dequeue() {
-      return queue.pop();
+      return items.pop();
     },
     peek() {
-      return queue[queue.length - 1];
+      return items[items.length - 1];
     },
     isEmpty() {
-      return queue.length === 0;
+      return items.length === 0;
     },
     get length() {
-      return queue.length;
+      return items.length;
     }
   };
 }

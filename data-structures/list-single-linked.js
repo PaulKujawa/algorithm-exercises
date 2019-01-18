@@ -11,21 +11,21 @@ function createSingleLinkedList() {
     tail: undefined,
     length: 0,
     push(value) {
-      const node = createNode(value);
+      const attachment = createNode(value);
 
       if (this.isEmpty()) {
-        this.head = node;
-        this.tail = node;
+        this.head = attachment;
+        this.tail = attachment;
         this.length++;
 
-        return node.value;
+        return attachment.value;
       }
 
-      this.tail.next = node;
-      this.tail = node;
+      this.tail.next = attachment;
+      this.tail = attachment;
       this.length++;
 
-      return node.value;
+      return attachment.value;
     },
     pop() {
       if (this.length === 0) {
