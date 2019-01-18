@@ -21,7 +21,7 @@ function createGraph(directed = false) {
     addNode(id) {
       nodes.push(createNode(id));
     },
-    getNode(id) {
+    getNode(id) { 
       return nodes.find(node => node.id === id);
     },
     addEdge(nodeId1, nodeId2) {
