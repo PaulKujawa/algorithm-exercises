@@ -1,4 +1,4 @@
-const bubbleSort = require("./bubble-sort");
+const bubbleSort = require("../../sorting/bubble-sort");
 
 describe("sort an array via bubble sort", () => {
   it("should sort natural numbers", () => {
