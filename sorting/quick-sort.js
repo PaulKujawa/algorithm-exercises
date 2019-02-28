@@ -1,19 +1,23 @@
+// worst case is one pivot per item
+// O(n) * O(n) = (n^2)
 function quickSort(arr) {
   if (arr.length < 2) {
     return arr;
   }
 
-  const pivotIndex = arr.length - 1;
+  // middle index is faster than last one
+  const pivotIndex = Math.floor(arr.length / 2);
   const pivot = arr[pivotIndex];
-  const left = [];
-  const right = [];
+  const less = [];
+  const greater = [];
 
-  for (let i = 0; i < pivotIndex; i++) {
-    const elem = arr[i];
-    elem < pivot ? left.push(elem) : right.push(elem);
+  for (let elem of arr) {
+    if (elem !== pivot) {
+      elem < pivot ? less.push(elem) : greater.push(elem);
+    }
   }
 
-  return [...quickSort(left), pivot, ...quickSort(right)];
+  return [...quickSort(less), pivot, ...quickSort(greater)];
 }
 
 module.exports = quickSort;
