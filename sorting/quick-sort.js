@@ -1,5 +1,5 @@
 // worst case is one pivot per item
-// O(n) * O(n) = (n^2)
+// O(N^2)
 function quickSort(arr) {
   if (arr.length < 2) {
     return arr;
