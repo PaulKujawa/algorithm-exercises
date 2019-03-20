@@ -1,11 +1,7 @@
 const createQueue = require("../queue");
 
 function breadthFirst(graph, entryId, visitFn) {
-  const visited = graph.nodes.reduce((acc, node) => {
-    acc[node.id] = false;
-    return acc;
-  }, Object.create(null));
-
+  const visited = Object.create(null);
   const nodes = createQueue();
   nodes.enqueue(graph.getNode(entryId));
 
