@@ -1,5 +1,5 @@
-const postOrder = require("../../../data-structures/traversals/post-order");
-const createBinaryTree = require("../../../data-structures/binary-tree");
+const postOrder = require("../../traversals/post-order");
+const createBinaryTree = require("../../data-structures/binary-tree");
 
 describe("depthFirst traversal", () => {
   let binaryTree;

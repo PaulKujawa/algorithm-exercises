@@ -1,4 +1,4 @@
-const createQueue = require("../queue");
+const createQueue = require("../data-structures/queue");
 
 function breadthFirst(graph, entryId, visitFn) {
   const visited = Object.create(null);
