@@ -20,4 +20,16 @@ function quickSort(arr) {
   return [...quickSort(less), pivot, ...quickSort(greater)];
 }
 
-module.exports = quickSort;
+function quickSortFn(arr) {
+  if (arr.length <= 1) {
+    return arr;
+  }
+
+  const [pivot, ...rest] = arr;
+  const smaller = rest.filter(e => e <= pivot);
+  const bigger = rest.filter(e => e > pivot);
+
+  return [...quickSortFn(smaller), pivot, ...quickSortFn(bigger)];
+}
+
+module.exports = { quickSort, quickSortFn };
