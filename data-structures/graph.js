@@ -1,28 +1,23 @@
 function createNode(id) {
-  const neighbors = [];
-
   return {
     id,
-    neighbors,
+    neighbors: [],
     addNeighbor(node) {
-      neighbors.push(node);
+      this.neighbors.push(node);
     }
   };
 }
 
 function createGraph(directed = false) {
-  const nodes = [];
-  const edges = [];
-
   return {
     directed,
-    nodes,
-    edges,
+    nodes: [],
+    edges: [],
     addNode(id) {
-      nodes.push(createNode(id));
+      this.nodes.push(createNode(id));
     },
-    getNode(id) { 
-      return nodes.find(node => node.id === id);
+    getNode(id) {
+      return this.nodes.find(node => node.id === id);
     },
     addEdge(nodeId1, nodeId2) {
       const node1 = this.getNode(nodeId1);
@@ -38,7 +33,7 @@ function createGraph(directed = false) {
         node2.addNeighbor(node1);
       }
 
-      edges.push(`${nodeId1}-${nodeId2}`);
+      this.edges.push(`${nodeId1}-${nodeId2}`);
     }
   };
 }

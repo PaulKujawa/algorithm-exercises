@@ -1,12 +1,10 @@
 function createNode(id) {
-  const children = [];
-
   return {
     id,
-    children,
+    children: [],
     addChild(id) {
       const child = createNode(id);
-      children.push(child);
+      this.children.push(child);
       return child;
     }
   };

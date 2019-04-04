@@ -1,10 +1,5 @@
-function depthFirst(graph, entryId, visitFn) {
-  const visited = graph.nodes.reduce((acc, node) => {
-    acc[node.id] = false;
-    return acc;
-  }, Object.create(null));
-
-  const entryNode = graph.getNode(entryId);
+function depthFirst(entryNode, visitFn) {
+  const visited = Object.create(null);
 
   function explore(node) {
     if (visited[node.id]) {
@@ -16,6 +11,7 @@ function depthFirst(graph, entryId, visitFn) {
 
     node.neighbors.forEach(node => explore(node));
   }
+
   explore(entryNode);
 }
 

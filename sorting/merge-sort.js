@@ -1,10 +1,10 @@
 // O(A+B)
 // non-mutating version 87f56dddded8882dacccdc38c58cd2e882b3b6be
-function mergeSortedArrays(a, b, lt = (a, b) => a < b) {
+function mergeSortedArrays(a, b) {
   const merged = [];
 
   while (a.length && b.length) {
-    if (lt(a[0], b[0])) {
+    if (a[0] < b[0]) {
       merged.push(a.shift());
     } else {
       merged.push(b.shift());

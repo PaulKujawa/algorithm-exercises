@@ -3,10 +3,13 @@ const createGraph = require("../../data-structures/graph");
 
 describe("depthFirst traversal", () => {
   let graph;
+  let entryNode;
 
   beforeAll(() => {
     graph = createGraph();
     ["a", "b", "c", "d", "e", "f"].forEach(id => graph.addNode(id));
+    entryNode = graph.getNode("a");
+
     [
       ["a", "b"],
       ["a", "e"],
@@ -21,7 +24,7 @@ describe("depthFirst traversal", () => {
 
   it("should include all nodes in a connected graph", () => {
     const mockFn = jest.fn();
-    depthFirst(graph, "a", mockFn);
+    depthFirst(entryNode, mockFn);
     expect(mockFn).toHaveBeenCalledTimes(graph.nodes.length);
   });
 
@@ -29,7 +32,7 @@ describe("depthFirst traversal", () => {
     const hasId = id => expect.objectContaining({ id });
     const mockFn = jest.fn();
 
-    depthFirst(graph, "a", mockFn);
+    depthFirst(entryNode, mockFn);
 
     expect(mockFn).toHaveBeenNthCalledWith(1, hasId("a"));
     expect(mockFn).toHaveBeenNthCalledWith(2, hasId("b"));

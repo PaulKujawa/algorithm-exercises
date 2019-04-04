@@ -1,9 +1,10 @@
 const createQueue = require("../data-structures/queue");
 
-function breadthFirst(graph, entryId, visitFn) {
+function breadthFirst(entryNode, visitFn) {
   const visited = Object.create(null);
+
   const nodes = createQueue();
-  nodes.enqueue(graph.getNode(entryId));
+  nodes.enqueue(entryNode);
 
   while (!nodes.isEmpty()) {
     const node = nodes.dequeue();
