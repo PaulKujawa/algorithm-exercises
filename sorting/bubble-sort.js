@@ -1,3 +1,4 @@
+// O(N^2)
 function bubbleSort(arr) {
   const array = [...arr];
   let swapped;
