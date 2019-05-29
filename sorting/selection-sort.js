@@ -1,28 +1,20 @@
-function findLargestNumber(list) {
-  let largest = list[0];
-  let indexOfLargest = 0;
-
-  for (let i = 1; i < list.length; i++) {
-    if (largest < list[i]) {
-      largest = list[i];
-      indexOfLargest = i;
-    }
-  }
-
-  return indexOfLargest;
-}
-
 // O(N^2)
 function selectionSort(arr) {
-  let newList = [];
+	const indexOfMaxNumber = () => arr.reduce(
+    (acc, elem, idx) => elem > acc.max ? {max: elem, idx} : acc,
+    {max: arr[0], idx: 0},
+  );
 
-  while (arr.length) {
-    const indexOfLargest = findLargestNumber(arr);
-    newList.push(arr[indexOfLargest]);
-    arr.splice(indexOfLargest, 1);
+
+	const arr = [...list];
+	const sorted = [];
+
+	while (arr.length) {
+		const {idx} = indexOfMaxNumber();
+		sorted.unshift( ...arr.splice(idx, 1) );
   }
-
-  return newList;
+	
+	return sorted;
 }
 
 module.exports = selectionSort;
