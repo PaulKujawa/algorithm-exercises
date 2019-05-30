@@ -4,11 +4,8 @@ function mergeSortedArrays(a, b) {
   const merged = [];
 
   while (a.length && b.length) {
-    if (a[0] < b[0]) {
-      merged.push(a.shift());
-    } else {
-      merged.push(b.shift());
-    }
+    const elem = a[0] < b[0] ? a.shift() : b.shift();
+    merged.push(elem);
   }
 
   return [...merged, ...a, ...b];
@@ -23,10 +20,10 @@ function mergeSort(arr) {
   }
 
   const middleIndex = Math.floor(array.length / 2);
-  const leftSide = array.slice(0, middleIndex);
-  const rightSide = array.slice(middleIndex);
+  const left = array.slice(0, middleIndex);
+  const right = array.slice(middleIndex);
 
-  return mergeSortedArrays(mergeSort(leftSide), mergeSort(rightSide));
+  return mergeSortedArrays(mergeSort(left), mergeSort(right));
 }
 
 module.exports = mergeSort;
