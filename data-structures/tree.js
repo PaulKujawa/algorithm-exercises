@@ -3,9 +3,7 @@ function createNode(id) {
     id,
     children: [],
     addChild(id) {
-      const child = createNode(id);
-      this.children.push(child);
-      return child;
+      this.children.push( createNode(id) );
     }
   };
 }
