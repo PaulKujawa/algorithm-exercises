@@ -4,14 +4,10 @@ function createNode(id) {
     leftChild: undefined,
     rightChild: undefined,
     addLeftChild(id) {
-      const child = createNode(id);
-      this.leftChild = child;
-      return child;
+      this.leftChild = createNode(id);
     },
     addRightChild(id) {
-      const child = createNode(id);
-      this.rightChild = child;
-      return child;
+      this.rightChild = createNode(id);
     }
   };
 }
