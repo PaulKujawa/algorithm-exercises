@@ -12,7 +12,7 @@ function createStack() {
       return items[items.length - 1];
     },
     isEmpty() {
-      return items.length === 0;
+      return !items.length;
     },
     get length() {
       return items.length;
