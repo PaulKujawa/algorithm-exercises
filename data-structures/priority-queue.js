@@ -1,34 +1,24 @@
-const createQueue = require('./queue.js');
-
 function createPriorityQueue() {
-  const items = createQueue();
-  const priorityItems = createQueue();
+  const prioItems = [];
+	const items = [];
 
-  return {
-    enqueue(item, priority = false) {
-      priority
-        ? priorityItems.enqueue(item)
-        : items.enqueue(item);
-    },
-    dequeue() {
-      if (priorityItems.length) {
-        return priorityItems.dequeue();
-      }
-      return items.dequeue();
-    },
-    peek() {
-      if (priorityItems.length) {
-        return priorityItems.peek();
-      }
-      return items.peek();
-    },
-    isEmpty() {
-      return priorityItems.isEmpty() && items.isEmpty();
-    },
-    get length() {
-      return priorityItems.length + items.length;
-    }
-  };
+	return {
+		enqueue(item, prio = false) {
+			prio ? prioItems.push(item) : items.push(item);
+		},
+		dequeue() {
+			return prioItems.length ? prioItems.shift() : items.shift();
+		},
+		get length() {
+			return items.length + prioItems.length;
+		},
+		peek() {
+			return prioItems.length ? prioItems[0] : items[0];
+		},
+		isEmpty() {
+			return prioItems.length === 0 && items.length === 0;
+		}
+	}
 }
 
 module.exports = createPriorityQueue;
