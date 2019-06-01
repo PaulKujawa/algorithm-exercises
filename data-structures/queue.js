@@ -3,13 +3,13 @@ function createQueue() {
 
   return {
     enqueue(item) {
-      items.unshift(item);
+      items.push(item);
     },
     dequeue() {
-      return items.pop();
+      return items.shift();
     },
     peek() {
-      return items[items.length - 1];
+      return items[0];
     },
     isEmpty() {
       return items.length === 0;
