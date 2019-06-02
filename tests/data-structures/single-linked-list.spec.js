@@ -6,9 +6,8 @@ beforeEach(() => {
   list = createSingleLinkedList();
 });
 
-describe("attach item to tail", () => {
+describe("push item", () => {
   it("should be emptry per default", () => {
-    expect(list.isEmpty()).toBeTruthy();
     expect(list.length).toBe(0);
   });
 
@@ -18,59 +17,105 @@ describe("attach item to tail", () => {
     list.push("c");
 
     expect(list.length).toBe(3);
-    expect(list.isEmpty()).toBeFalsy();
   });
 
-  it("should update tail to last-in item", () => {
+  it("should insert in order", () => {
     list.push("a");
     list.push("b");
     list.push("c");
 
-    expect(list.length).toBe(3);
-    expect(list.get(2)).toBe("c");
+    expect(list.head.id).toBe("a");
+    expect(list.head.next.id).toBe("b");
+    expect(list.head.next.next.id).toBe("c");
   });
 });
 
-describe("remove item from tail", () => {
+describe("pop an item", () => {
   it("should return undefined when empty", () => {
     expect(list.pop()).toBeUndefined();
   });
 
-  it("should return and remove last-in item", () => {
-    list.push("a");
-    list.push("b");
-    list.push("c");
+  it("should push and pop in order", () => {
+    const nodeC = { id: "c", next: null };
+    const nodeB = { id: "b", next: nodeC };
+    list.head = { id: "a", next: nodeB };
+    list.length = 3;
+
     expect(list.pop()).toBe("c");
-    expect(list.length).toBe(2);
   });
 });
 
-describe("getting items per index", () => {
-  it("should return undefined for an invalid index", () => {
-    expect(list.get(404)).toBeUndefined();
+describe("insert item per index", () => {
+  it("should return undefined for negative index", () => {
+    expect(list.insert("a", -1)).toBeUndefined();
   });
 
-  it("should return the item for a valid index", () => {
-    list.push("a");
-    list.push("b");
-    expect(list.get(0)).toBe("a");
-    expect(list.get(1)).toBe("b");
-    expect(list.length).toBe(2);
+  it("should return undefined for an invalid index", () => {
+    expect(list.insert("a", 404)).toBeUndefined();
+  });
+
+  it("should create a list of 1 item", () => {
+    list.insert("a", 0);
+    expect(list.length).toBe(1);
+    expect(list.head).toEqual({ id: "a", next: null });
+  });
+
+  it("should link items", () => {
+    list.insert("a", 0);
+    list.insert("b", 1);
+    list.insert("c", 0);
+
+    const nodeB = { id: "b", next: null };
+    const nodeA = { id: "a", next: nodeB };
+    const nodeC = { id: "c", next: nodeA };
+
+    expect(list.head).toEqual(nodeC);
+    expect(list.head.next).toEqual(nodeA);
+    expect(list.head.next.next).toEqual(nodeB);
   });
 });
 
-describe("remove item per index", () => {
-  it("should return undefined for an invalid index", () => {
-    expect(list.delete(404)).toBeUndefined();
+describe("pick item per index", () => {
+  it("should return undefined for negative index", () => {
+    expect(list.pick(-1)).toBeUndefined();
   });
 
-  it("should return and remove the item for a valid index", () => {
-    list.push("a");
-    list.push("b");
-    list.push("c");
-    list.push("d");
-    expect(list.delete(1)).toBe("b");
-    expect(list.get(1)).toBe("c");
-    expect(list.length).toBe(3);
+  it("should return undefined for an invalid index", () => {
+    expect(list.pick(404)).toBeUndefined();
+  });
+
+  it("should handle list of 1 item", () => {
+    list.head = { id: "a", next: null };
+    list.length = 1;
+
+    expect(list.pick(0)).toBe("a");
+  });
+
+  it("should handle list of 2 items", () => {
+    const nodeB = { id: "b", next: null };
+    list.head = { id: "a", next: nodeB };
+    list.length = 2;
+
+    expect(list.pick(1)).toBe("b");
+  });
+
+  it("should handle list of N-items", () => {
+    const nodeC = { id: "c", next: null };
+    const nodeB = { id: "b", next: nodeC };
+    list.head = { id: "a", next: nodeB };
+    list.length = 3;
+
+    expect(list.pick(2)).toBe("c");
+  });
+
+  it("should handle two picks", () => {
+    const nodeC = { id: "c", next: null };
+    const nodeB = { id: "b", next: nodeC };
+    list.head = { id: "a", next: nodeB };
+    list.length = 3;
+
+    expect(list.pick(0)).toBe("a");
+    expect(list.pick(1)).toBe("c");
+    expect(list.pick(0)).toBe("b");
   });
 });
