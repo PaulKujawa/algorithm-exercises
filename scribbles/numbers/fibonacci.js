@@ -8,10 +8,10 @@ function fibonacci(n) {
     return 1;
   }
 
-  let fib = [0, 1];
+  let fib = [1, 1];
 
   // O(N)
-  for (let i = 2; i <= n; i++) {
+  for (let i = 3; i <= n; i++) {
     fib = [fib[1], fib[0] + fib[1]];
   }
 
