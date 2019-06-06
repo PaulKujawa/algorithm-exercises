@@ -9,7 +9,7 @@ function depthFirst(entryNode, visitFn) {
     visitFn(node);
     visited[node.id] = true;
 
-    node.neighbors.forEach(node => explore(node));
+    node.neighbors.forEach(explore);
   }
 
   explore(entryNode);
