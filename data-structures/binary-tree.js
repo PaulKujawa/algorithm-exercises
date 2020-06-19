@@ -3,16 +3,12 @@ function createNode(id) {
     id,
     leftChild: undefined,
     rightChild: undefined,
-    addLeftChild(id) {
-      const child = createNode(id);
-      this.leftChild = child;
-      return child;
+    setLeftChild(id) {
+      return (this.leftChild = createNode(id));
     },
-    addRightChild(id) {
-      const child = createNode(id);
-      this.rightChild = child;
-      return child;
-    }
+    setRightChild(id) {
+      return (this.rightChild = createNode(id));
+    },
   };
 }
 

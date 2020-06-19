@@ -2,11 +2,12 @@ function createNode(id) {
   return {
     id,
     children: [],
-    addChild(id) {
-      const child = createNode(id);
-      this.children.push(child);
-      return child;
-    }
+    setChildren(ids) {
+      return (this.children = ids.map(createNode));
+    },
+    getChild(childId) {
+      return this.children.find((child) => child.id === childId);
+    },
   };
 }
 

@@ -7,18 +7,18 @@ describe("depthFirst traversal", () => {
   beforeAll(() => {
     binaryTree = createBinaryTree("a");
     const a = binaryTree.root;
-    const b = a.addLeftChild("b");
-    b.addLeftChild("c");
-    const d = b.addRightChild("d");
-    d.addLeftChild("e");
-    d.addRightChild("f");
-    const g = a.addRightChild("g");
-    const h = g.addRightChild("h");
-    h.addLeftChild("i");
+    const b = a.setLeftChild("b");
+    b.setLeftChild("c");
+    const d = b.setRightChild("d");
+    d.setLeftChild("e");
+    d.setRightChild("f");
+    const g = a.setRightChild("g");
+    const h = g.setRightChild("h");
+    h.setLeftChild("i");
   });
 
   it("should visit nodes in depth-first", () => {
-    const hasId = id => expect.objectContaining({ id });
+    const hasId = (id) => expect.objectContaining({ id });
     const mockFn = jest.fn();
 
     preOrder(binaryTree.root, mockFn);
