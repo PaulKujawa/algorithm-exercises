@@ -1,22 +1,21 @@
 // O(N^2)
-function bubbleSort(arr) {
-  const array = [...arr];
+function bubbleSort(sourceList) {
+  const list = [...sourceList];
   let swapped;
 
   do {
     swapped = false;
 
-    array.forEach((elem, i) => {
-      if (elem > array[i + 1]) {
-        const temp = elem;
-        array[i] = array[i + 1];
-        array[i + 1] = temp;
+    list.forEach((elem, idx) => {
+      if (elem > list[idx + 1]) {
+        list[idx] = list[idx + 1];
+        list[idx + 1] = elem;
         swapped = true;
       }
     });
   } while (swapped);
 
-  return array;
+  return list;
 }
 
 module.exports = bubbleSort;

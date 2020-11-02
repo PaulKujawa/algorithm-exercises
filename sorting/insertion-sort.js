@@ -1,17 +1,21 @@
 // O(N^2)
-function insertionSort(arr) {
-  const array = [...arr];
+function insertionSort(sourceList) {
+  if (sourceList.length < 2) {
+    return sourceList;
+  }
 
-  for (let i = 1; i < array.length; i++) {
-    for (let j = 0; j < i; j++) {
-      if (array[i] < array[j]) {
-        const [item] = array.splice(i, 1);
-        array.splice(j, 0, item);
+  const list = [...sourceList];
+
+  for (let r = 1; r < list.length; r++) {
+    for (let l = 0; l < r; l++) {
+      if (list[r] < list[l]) {
+        const [item] = list.splice(r, 1);
+        list.splice(l, 0, item);
       }
     }
   }
 
-  return array;
+  return list;
 }
 
 module.exports = insertionSort;

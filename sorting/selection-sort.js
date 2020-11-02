@@ -1,17 +1,20 @@
-const maxNumber = arr =>
-  arr.reduce((max, elem, idx) => (elem > max.elem ? { elem, idx } : max), {
-    elem: arr[0],
-    idx: 0
-  });
-
 // O(N^2)
 function selectionSort(list) {
-  const arr = [...list];
+  if (list.length < 2) {
+    return list;
+  }
+
+  const unsorted = [...list];
   const sorted = [];
 
-  while (arr.length) {
-    const { idx } = maxNumber(arr);
-    sorted.unshift(...arr.splice(idx, 1));
+  while (unsorted.length) {
+    const smallest = unsorted.reduce(
+      (min, value, idx) => (min.value > value ? { value, idx } : min),
+      { value: unsorted[0], idx: 0 }
+    );
+
+    const [selected] = unsorted.splice(smallest.idx, 1);
+    sorted.push(selected);
   }
 
   return sorted;
